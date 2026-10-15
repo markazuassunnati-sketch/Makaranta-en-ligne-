@@ -3,56 +3,127 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Madrasa Maradi - Cours WhatsApp</title>
+<title>Madrasa Maradi - Inscription Officielle</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{background:#f0f2f5}
-header{background:#075e54;color:#fff;padding:18px 5%}
-.hero{background:linear-gradient(135deg,#075e54,#128c7e);color:#fff;padding:50px 5%;text-align:center}
-.hero h2{font-size:32px}
-.card{background:#fff;border-radius:14px;padding:22px;max-width:900px;margin:-30px auto 20px;box-shadow:0 8px 25px rgba(0,0,0,.1)}
-.niveaux{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:16px 0}
-.niveau{border:2px solid #e2e8f0;border-radius:12px;padding:16px;cursor:pointer}
-.niveau.active{border-color:#128c7e;background:#f0fdfa}
-input,select{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;margin:6px 0 12px}
-.btn-wa{background:#25d366;color:#fff;border:none;padding:14px;width:100%;border-radius:10px;font-weight:700;font-size:16px;cursor:pointer}
-.log{margin-top:12px;padding:12px;background:#f1f5f9;border-radius:8px;font-size:13px;display:none}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6}
+header{background:#fff;border-bottom:1px solid #e2e8f0;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.logo{font-weight:700;color:#065f46;display:flex;align-items:center;gap:8px}
+.badge{background:#ecfdf5;color:#065f46;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700}
+.hero{background:linear-gradient(135deg,#064e3b,#0f766e);color:#fff;padding:60px 5% 100px;text-align:center}
+.hero h1{font-family:'Amiri',serif;font-size:38px;margin-bottom:8px}
+.hero p{opacity:.9;max-width:600px;margin:0 auto}
+.container{max-width:800px;margin:-60px auto 40px;padding:0 4%}
+.card{background:#fff;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.08);padding:28px;border:1px solid #f1f5f9}
+.step-title{font-weight:700;color:#065f46;margin:22px 0 12px;display:flex;align-items:center;gap:8px}
+.step-num{background:#065f46;color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px}
+.niveaux{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:600px){.niveaux{grid-template-columns:1fr}}
+.niveau{border:2px solid #e2e8f0;border-radius:14px;padding:16px;cursor:pointer;transition:.2s;text-align:center}
+.niveau:hover{border-color:#6ee7b7}
+.niveau.active{border-color:#059669;background:#f0fdf4;box-shadow:0 0 0 3px #a7f3d0}
+.niveau h4{color:#065f46;font-size:15px}
+.niveau small{color:#64748b;font-size:12px}
+label{font-size:13px;font-weight:600;color:#334155;margin-top:10px;display:block}
+input,select,textarea{width:100%;padding:12px 14px;border:1.5px solid #e2e8f0;border-radius:10px;margin:6px 0 14px;font-size:14px;outline:none;transition:.2s}
+input:focus,select:focus,textarea:focus{border-color:#059669;box-shadow:0 0 0 3px #d1fae5}
+textarea{resize:vertical}
+.qbox{background:#f8fafc;border:1px solid #eef2f7;border-radius:12px;padding:14px;margin:10px 0}
+.engagement{background:#fffbeb;border:1.5px solid #fcd34d;border-radius:12px;padding:16px;margin:18px 0}
+.engagement label{font-weight:400;font-size:13px;line-height:1.5}
+.check{width:18px;height:18px;accent-color:#059669}
+.btn{background:#059669;color:#fff;border:none;padding:15px;border-radius:12px;width:100%;font-weight:700;font-size:16px;cursor:pointer;transition:.2s;display:flex;justify-content:center;gap:8px;align-items:center}
+.btn:disabled{background:#94a3b8;cursor:not-allowed}
+.btn:hover:not(:disabled){background:#047857;transform:translateY(-1px)}
+.log{display:none;margin-top:14px;padding:14px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;font-size:13px}
+.req{color:#dc2626}
+footer{text-align:center;padding:20px;color:#94a3b8;font-size:11px}
 </style>
 </head>
 <body>
-<header><b>📚 Madrasa Maradi - Cours WhatsApp</b></header>
-<div class="hero"><h2>Apprends l'Arabe & l'Islam sur WhatsApp</h2><p>Inscription 30 sec, accès direct</p></div>
+<header>
+<div class="logo">📖 Madrasa Maradi <span style="font-family:'Amiri'">مركز السنة</span></div>
+<div class="badge">Inscription Officielle 2026</div>
+</header>
+<div class="hero">
+<h1>بسم الله الرحمن الرحيم</h1>
+<h1 style="font-family:'Inter';font-size:28px;margin-top:10px">Rejoins nos cercles de science</h1>
+<p>Une formation sérieuse sur WhatsApp pour apprendre l'arabe et la religion. L'engagement et l'assiduité sont les conditions de la réussite.</p>
+</div>
+<div class="container">
 <div class="card">
-<h3>1. Choisis ton niveau</h3>
+<div class="step-title"><span class="step-num">1</span> Choisis ton niveau d'étude <span class="req">*</span></div>
 <div class="niveaux">
-<div class="niveau active" onclick="selectNiv(this,'Debutant')"><h4>🌱 Débutant</h4><small>Alphabet, Iqra<br><b>3 000 F/mois</b></small></div>
-<div class="niveau" onclick="selectNiv(this,'Intermediaire')"><h4>🌿 Intermédiaire</h4><small>Coran, grammaire, Fiqh<br><b>5 000 F/mois</b></small></div>
-<div class="niveau" onclick="selectNiv(this,'Avance')"><h4>🌳 Avancé Tajwid</h4><small>Tajwid, Tafsir<br><b>7 000 F/mois</b></small></div>
+<div class="niveau active" onclick="selectNiv(this,'Debutant')"><h4>🌱 Débutant</h4><small>Alphabets, lecture, bases<br><b>3 fois / semaine</b></small></div>
+<div class="niveau" onclick="selectNiv(this,'Intermediaire')"><h4>🌿 Intermédiaire</h4><small>Grammaire, Fiqh, Hadith<br><b>4 fois / semaine</b></small></div>
+<div class="niveau" onclick="selectNiv(this,'Avance')"><h4>🌳 Avancé</h4><small>Tajwid, Tafsir, Arabe avancé<br><b>5 fois / semaine</b></small></div>
 </div>
-<h3>2. Tes infos</h3>
-<input id="nom" placeholder="Nom complet">
-<input id="tel" placeholder="WhatsApp +227...">
-<select id="ville"><option>Niamey</option><option>Maradi</option><option>Zinder</option></select>
-<select id="payMode"><option>Airtel Money</option><option>Moov Money</option><option>Essai gratuit</option></select>
-<button class="btn-wa" onclick="inscrireWhatsApp()">✅ S'inscrire & Rejoindre WhatsApp</button>
+<div class="step-title"><span class="step-num">2</span> Informations personnelles</div>
+<label>Nom complet <span class="req">*</span></label>
+<input id="nom" placeholder="Ex: Elh Issa Boulama Issa Ary">
+<label>Numéro WhatsApp <span class="req">*</span></label>
+<input id="tel" placeholder="+227 99 64 16 33">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div><label>Ville <span class="req">*</span></label><select id="ville"><option value="">Choisir</option><option>Maradi</option><option>Zinder</option><option>Niamey</option><option>Tahoua</option><option>Agadez</option><option>Autre</option></select></div>
+<div><label>Âge</label><select id="age"><option value="">Choisir</option><option>Moins de 15 ans</option><option>15-20 ans</option><option>21-30 ans</option><option>31-45 ans</option><option>Plus de 45 ans</option></select></div>
+</div>
+<div class="step-title"><span class="step-num">3</span> Questionnaire de motivation</div>
+<div class="qbox">
+<label>Quel est ton objectif principal? <span class="req">*</span></label>
+<select id="objectif"><option value="">Choisir</option><option>Lire le Coran correctement</option><option>Comprendre la religion</option><option>Apprendre l'arabe pour les études</option><option>Devenir enseignant</option><option>Autre</option></select>
+<label>As-tu déjà étudié l'arabe? <span class="req">*</span></label>
+<select id="experience"><option value="">Choisir</option><option>Jamais</option><option>Un peu (alphabet)</option><option>1-2 ans</option><option>Plus de 2 ans</option></select>
+<label>Combien d'heures par semaine peux-tu consacrer? <span class="req">*</span></label>
+<select id="dispo"><option value="">Choisir</option><option>1-2h (peu disponible)</option><option>3-4h (moyennement)</option><option>5-7h (assidu)</option><option>+7h (très motivé)</option></select>
+<label>Pourquoi devons-nous te sélectionner? (2-3 phrases) <span class="req">*</span></label>
+<textarea id="motivation" rows="3" placeholder="Ex: Je veux vraiment apprendre pour comprendre le Coran, je suis prêt à être assidu..."></textarea>
+</div>
+<div class="step-title"><span class="step-num">4</span> Engagement d'assiduité</div>
+<div class="engagement">
+<label style="display:flex;gap:10px;align-items:flex-start"><input type="checkbox" id="e1" class="check"> <span>Je m'engage à être <b>présent à 80% minimum</b> des cours et à prévenir en cas d'absence.</span></label>
+<label style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><input type="checkbox" id="e2" class="check"> <span>Je m'engage à faire les <b>devoirs et révisions</b> demandés par le mou'alim.</span></label>
+<label style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><input type="checkbox" id="e3" class="check"> <span>Je comprends que <b>3 absences non justifiées = exclusion</b> pour laisser la place à un autre frère/sœur motivé.</span></label>
+<label style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><input type="checkbox" id="e4" class="check"> <span>Je jure par Allah que je suis <b>vraiment intéressé(e) et sincère</b> dans ma démarche.</span></label>
+</div>
+<button class="btn" id="submitBtn" onclick="inscrire()" disabled>🔒 Coche les 4 engagements pour continuer</button>
 <div id="log" class="log"></div>
+<p style="text-align:center;font-size:11px;color:#64748b;margin-top:12px">Vos informations restent confidentielles. Seul l'admin verra votre motivation.</p>
 </div>
+</div>
+<footer>Markazu As-Sunnati - Maradi Niger | Barakallahu fikum</footer>
 <script>
 let niveauChoisi='Debutant';
-const liensWhatsApp = {
-  Debutant: 'https://chat.whatsapp.com/Dv8dZvQPgRb3n1f9FNzjaq?s=cl&p=a&mlu=4&ilr=4',
-  Intermediaire: 'https://chat.whatsapp.com/LEntec4pNxAAjJSdtyEEbq?s=cl&p=a&mlu=4&ilr=4',
-  Avance: 'https://chat.whatsapp.com/Hb0ojfwzrst1mZokQOvp31?s=cl&p=a&mlu=4&ilr=4'
+const liens={
+  Debutant:'https://chat.whatsapp.com/H7OGkJAmRj16IRIXNlXPk7',
+  Intermediaire:'https://chat.whatsapp.com/LEntec4pNxAAjJSdtyEEbq',
+  Avance:'https://chat.whatsapp.com/Hb0ojfwzrst1mZokQOvp31'
 };
-function selectNiv(el,niv){document.querySelectorAll('.niveau').forEach(n=>n.classList.remove('active'));el.classList.add('active');niveauChoisi=niv;}
-function inscrireWhatsApp(){
+function selectNiv(el,n){document.querySelectorAll('.niveau').forEach(x=>x.classList.remove('active'));el.classList.add('active');niveauChoisi=n;}
+function checkEngagement(){
+  let all=document.getElementById('e1').checked && document.getElementById('e2').checked && document.getElementById('e3').checked && document.getElementById('e4').checked;
+  let btn=document.getElementById('submitBtn');
+  btn.disabled=!all;
+  btn.innerHTML=all?'✅ Valider mon inscription & Rejoindre le groupe':'🔒 Coche les 4 engagements pour continuer';
+}
+document.querySelectorAll('.check').forEach(c=>c.addEventListener('change',checkEngagement));
+function inscrire(){
   let nom=document.getElementById('nom').value.trim();
   let tel=document.getElementById('tel').value.trim();
-  if(!nom||!tel){alert('Remplis nom et numéro dan uwa');return;}
+  let ville=document.getElementById('ville').value;
+  let objectif=document.getElementById('objectif').value;
+  let exp=document.getElementById('experience').value;
+  let dispo=document.getElementById('dispo').value;
+  let mot=document.getElementById('motivation').value.trim();
+  if(!nom||!tel||!ville||!objectif||!exp||!dispo||!mot){alert('Dan uwa, remplis tous les champs avec *');return;}
+  if(mot.length<15){alert('Écris au moins 2 phrases pour ta motivation dan uwa');return;}
   let log=document.getElementById('log');log.style.display='block';
-  log.innerHTML='⏳ Inscription '+niveauChoisi+' pour '+nom+'... ✅ OK<br>Redirection...';
-  let lien=liensWhatsApp[niveauChoisi];
-  setTimeout(()=>{log.innerHTML+='<br><br><a href="'+lien+'" target="_blank" style="background:#25d366;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-block">👉 Rejoindre Groupe '+niveauChoisi+'</a>';window.open(lien,'_blank');},1000);
+  log.innerHTML='⏳ Vérification de ton dossier...<br>✅ Nom: '+nom+'<br>✅ Niveau: '+niveauChoisi+'<br>✅ Motivation acceptée<br><br>🎉 <b>Mabrouk! Ton inscription est validée.</b><br>Tu t\'es engagé devant Allah à être assidu. Qu\'Allah te facilite.';
+  let lien=liens[niveauChoisi];
+  setTimeout(()=>{
+    log.innerHTML+='<br><br><a href="'+lien+'" target="_blank" style="background:#059669;color:#fff;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-block">👉 Rejoindre Groupe '+niveauChoisi+' maintenant</a><br><br><small>Un message de bienvenue t\'attend dans le groupe. Dis Salam et présente-toi.</small>';
+    window.open(lien,'_blank');
+  },900);
 }
 </script>
 </body>
