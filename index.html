@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madrasa Maradi - Cours WhatsApp</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:#f0f2f5}
+header{background:#075e54;color:#fff;padding:18px 5%;display:flex;justify-content:space-between}
+.hero{background:linear-gradient(135deg,#075e54,#128c7e);color:#fff;padding:50px 5%;text-align:center}
+.hero h2{font-size:32px}
+.card{background:#fff;border-radius:14px;padding:22px;max-width:900px;margin:-30px auto 20px;box-shadow:0 8px 25px rgba(0,0,0,.1)}
+.niveaux{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:16px 0}
+.niveau{border:2px solid #e2e8f0;border-radius:12px;padding:16px;cursor:pointer}
+.niveau.active{border-color:#128c7e;background:#f0fdfa}
+input,select{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;margin:6px 0 12px}
+.btn-wa{background:#25d366;color:#fff;border:none;padding:14px;width:100%;border-radius:10px;font-weight:700;font-size:16px;cursor:pointer}
+.log{margin-top:12px;padding:12px;background:#f1f5f9;border-radius:8px;font-size:13px;display:none}
+</style>
+</head>
+<body>
+<header><b>📚 Madrasa Maradi - Cours WhatsApp</b></header>
+<div class="hero"><h2>Apprends l'Arabe & l'Islam sur WhatsApp</h2><p>Inscription 30 sec, accès direct au groupe</p></div>
+<div class="card">
+<h3>1. Choisis ton niveau</h3>
+<div class="niveaux">
+<div class="niveau active" onclick="selectNiv(this,'Debutant')" id="niv1"><h4>🌱 Débutant</h4><small>Alphabet, salutations, Iqra<br><b>3 000 F/mois</b></small></div>
+<div class="niveau" onclick="selectNiv(this,'Intermediaire')" id="niv2"><h4>🌿 Intermédiaire</h4><small>Coran, grammaire, Fiqh<br><b>5 000 F/mois</b></small></div>
+<div class="niveau" onclick="selectNiv(this,'Avance')" id="niv3"><h4>🌳 Avancé Tajwid</h4><small>Tajwid, Tafsir<br><b>7 000 F/mois</b></small></div>
+</div>
+<h3>2. Tes infos</h3>
+<input id="nom" placeholder="Nom complet - Ex: Aisha Moussa">
+<input id="tel" placeholder="WhatsApp +227 90 XX XX XX">
+<select id="ville"><option>Maradi</option><option>Zinder</option><option>Niamey</option><option>Tahoua</option></select>
+<select id="payMode"><option>Airtel Money</option><option>Moov Money</option><option>Essai gratuit 3 jours</option></select>
+<button class="btn-wa" onclick="inscrireWhatsApp()">✅ S'inscrire & Rejoindre WhatsApp</button>
+<div id="log" class="log"></div>
+<p style="margin-top:12px;font-size:11px;color:#64748b;text-align:center">Après paiement, redirection auto vers groupe WhatsApp</p>
+</div>
+<script>
+let niveauChoisi='Debutant';
+// ⚠️ REMPLACE CES 3 LIENS PAR TES VRAIS LIENS WHATSAPP
+const liensWhatsApp = {
+  Debutant: 'https://chat.whatsapp.com/TON_LIEN_DEBUTANT_ICI',
+  Intermediaire: 'https://chat.whatsapp.com/TON_LIEN_INTER_ICI',
+  Avance: 'https://chat.whatsapp.com/TON_LIEN_AVANCE_ICI'
+};
+function selectNiv(el,niv){
+  document.querySelectorAll('.niveau').forEach(n=>n.classList.remove('active'));
+  el.classList.add('active'); niveauChoisi=niv;
+}
+function inscrireWhatsApp(){
+  let nom=document.getElementById('nom').value;
+  let tel=document.getElementById('tel').value;
+  if(!nom||!tel){alert('Remplis nom et numéro dan uwa');return;}
+  let log=document.getElementById('log'); log.style.display='block';
+  log.innerHTML='⏳ Inscription '+niveauChoisi+' pour '+nom+'... ✅ OK<br>Redirection vers groupe '+niveauChoisi+'...';
+  let lien = liensWhatsApp[niveauChoisi];
+  setTimeout(()=>{
+    log.innerHTML+='<br><br>🎉 Clique ici pour rejoindre:<br><a href="'+lien+'" target="_blank" style="background:#25d366;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-block">👉 Rejoindre Groupe '+niveauChoisi+'</a>';
+    window.open(lien,'_blank');
+  },1000);
+}
+</script>
+</body>
+</html>
