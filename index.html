@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Markazu As-Sunnati - Maradi | Makaranta en Ligne</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https:;">
+<title>Markazu As-Sunnati - Maradi | Makaranta en Ligne - Sécurisé</title>
 <meta name="description" content="Rejoins la Madrasa Maradi. Coran, Tajwid, Arabe sur WhatsApp. Inscription officielle 2026.">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#065f46">
@@ -47,12 +48,13 @@ input:focus,select:focus,textarea:focus{border-color:var(--g2);box-shadow:0 0 0 
 .install{background:#0f172a;color:#fff;padding:14px 18px;border-radius:14px;margin-bottom:16px;display:none;justify-content:space-between;align-items:center}
 .success{display:none;margin-top:18px;padding:18px;background:linear-gradient(135deg,#ecfdf5,#d1fae5);border:1.5px solid #6ee7b7;border-radius:16px;text-align:center}
 footer{text-align:center;padding:24px;color:#94a3b8;font-size:11px}
+.honeypot{position:absolute;left:-5000px;top:auto;width:1px;height:1px;overflow:hidden;opacity:0}
 </style>
 </head>
 <body>
 <header>
 <div class="logo">📖 <span>مركز السنة</span> Maradi</div>
-<div class="badge">INSCRIPTION 2026 • OFFICIELLE</div>
+<div class="badge">INSCRIPTION 2026 • OFFICIELLE • SÉCURISÉ</div>
 </header>
 
 <div class="hero">
@@ -78,18 +80,20 @@ footer{text-align:center;padding:24px;color:#94a3b8;font-size:11px}
 </div>
 
 <div class="step"><b>2</b> Informations</div>
-<label>Nom complet *</label><input id="nom" placeholder="Ex: Boulama Issa">
-<label>Numéro WhatsApp *</label><input id="tel" placeholder="+227 90 00 00 00">
+<form id="secureForm" novalidate>
+<input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off">
+<label>Nom complet *</label><input id="nom" required maxlength="50" placeholder="Ex: Boulama Issa">
+<label>Numéro WhatsApp *</label><input id="tel" type="tel" required maxlength="20" placeholder="+227 90 00 00 00">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-<div><label>Ville *</label><select id="ville"><option value="">Choisir</option><option>Maradi</option><option>Zinder</option><option>Niamey</option><option>Tahoua</option><option>Agadez</option><option>Autre</option></select></div>
+<div><label>Ville *</label><select id="ville" required><option value="">Choisir</option><option>Maradi</option><option>Zinder</option><option>Niamey</option><option>Tahoua</option><option>Agadez</option><option>Autre</option></select></div>
 <div><label>Âge</label><select id="age"><option value="">Choisir</option><option>Moins de 15</option><option>15-20</option><option>21-30</option><option>31-45</option><option>Plus de 45</option></select></div>
 </div>
 
 <div class="step"><b>3</b> Motivation</div>
 <div class="qbox">
-<label>Objectif *</label><select id="objectif"><option value="">Choisir</option><option>Lire le Coran correctement</option><option>Comprendre la religion</option><option>Apprendre l'arabe</option><option>Devenir enseignant</option></select>
-<label>Expérience arabe *</label><select id="experience"><option value="">Choisir</option><option>Jamais</option><option>Un peu</option><option>1-2 ans</option><option>Plus de 2 ans</option></select>
-<label>Pourquoi toi ? *</label><textarea id="motivation" rows="3" placeholder="Je veux vraiment apprendre parce que... (min 10 caractères)"></textarea>
+<label>Objectif *</label><select id="objectif" required><option value="">Choisir</option><option>Lire le Coran correctement</option><option>Comprendre la religion</option><option>Apprendre l'arabe</option><option>Devenir enseignant</option></select>
+<label>Expérience arabe *</label><select id="experience" required><option value="">Choisir</option><option>Jamais</option><option>Un peu</option><option>1-2 ans</option><option>Plus de 2 ans</option></select>
+<label>Pourquoi toi ? *</label><textarea id="motivation" required rows="3" maxlength="500" placeholder="Je veux vraiment apprendre parce que... (min 10 caractères)"></textarea>
 </div>
 
 <div class="step"><b>4</b> Engagement</div>
@@ -100,44 +104,64 @@ footer{text-align:center;padding:24px;color:#94a3b8;font-size:11px}
 <label style="display:flex;gap:10px;margin-top:12px"><input type="checkbox" id="e4" class="check"> <span>Sincère devant Allah, <b>vraiment motivé</b></span></label>
 </div>
 
-<button class="btn" id="submitBtn" disabled>🔒 Coche les 4 engagements pour continuer</button>
+<button class="btn" id="submitBtn" type="submit" disabled>🔒 Coche les 4 engagements pour continuer</button>
+<p id="msgSec" style="font-size:11px;color:#b91c1c;text-align:center;margin-top:10px;font-weight:700"></p>
+</form>
 
 <div id="successBox" class="success"></div>
 </div>
 </div>
 
-<footer>Markazu As-Sunnati - Maradi, Niger • PWA Installable • © 2026</footer>
+<footer>Markazu As-Sunnati - Maradi, Niger • PWA Installable • Sécurisé HTML 100% • © 2026</footer>
 
 <script>
 let niveauChoisi='Debutant';
+let startTime = Date.now();
 const liens={
   Debutant:'https://chat.whatsapp.com/H7OGkJAmRj16IRIXNlXPk7',
   Intermediaire:'https://chat.whatsapp.com/LEntec4pNxAAjJSdtyEEbq',
   Avance:'https://chat.whatsapp.com/Hb0ojfwzrst1mZokQOvp31'
 };
+function clean(s){return s.replace(/[<>\/\\$;{}=`]/g,'').trim();}
 function selectNiv(el,n){document.querySelectorAll('.niveau').forEach(x=>x.classList.remove('active'));el.classList.add('active');niveauChoisi=n}
 function checkEng(){let ok=e1.checked&&e2.checked&&e3.checked&&e4.checked;submitBtn.disabled=!ok;submitBtn.innerText=ok?'✅ Valider & Rejoindre le groupe':'🔒 Coche les 4 engagements pour continuer'}
 document.querySelectorAll('.check').forEach(c=>c.addEventListener('change',checkEng));
-function inscrire(){
-  let nom=document.getElementById('nom').value.trim();
-  let tel=document.getElementById('tel').value.trim();
-  let ville=document.getElementById('ville').value;
-  let obj=document.getElementById('objectif').value;
-  let exp=document.getElementById('experience').value;
-  let mot=document.getElementById('motivation').value.trim();
-  if(!nom||!tel||!ville||!obj||!exp||!mot){alert('Remplis tous les champs *');return}
-  if(mot.length<10){alert('Ta motivation est trop courte (min 10 caractères)');return}
-  if(!tel.startsWith('+227') && !tel.startsWith('227')){if(!confirm('Ton numéro ne commence pas par +227. C\'est bien un numéro Niger?'))return}
+
+document.getElementById('secureForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const msgSec = document.getElementById('msgSec');
+  msgSec.innerText="";
+  if(document.querySelector('[name="website"]').value!==""){return;}
+  if(Date.now()-startTime < 3000){msgSec.innerText="Prends ton temps akhi... remplis calmement";return;}
+  let tries=parseInt(localStorage.getItem('makaranta_tries')||'0');
+  let last=parseInt(localStorage.getItem('makaranta_last')||'0');
+  if(tries>=3 && Date.now()-last < 600000){msgSec.innerText="Trop d'essais. Attends 10 min in sha Allah";return;}
+
+  let nom=clean(document.getElementById('nom').value);
+  let tel=clean(document.getElementById('tel').value);
+  let ville=clean(document.getElementById('ville').value);
+  let obj=clean(document.getElementById('objectif').value);
+  let exp=clean(document.getElementById('experience').value);
+  let mot=clean(document.getElementById('motivation').value);
+
+  if(!nom||!tel||!ville||!obj||!exp||!mot){msgSec.innerText="Remplis tous les champs *";return;}
+  if(mot.length<10){msgSec.innerText="Ta motivation est trop courte (min 10 caractères)";return;}
+  if(nom.length<3){msgSec.innerText="Nom trop court";return;}
+  if(tel.length<8){msgSec.innerText="Numéro invalide";return;}
+
   let box=document.getElementById('successBox');box.style.display='block';
-  box.innerHTML=`<h3 style="color:#065f46">✅ Mabrouk ${nom}!</h3><p style="margin:8px 0">Inscription validée - Niveau <b>${niveauChoisi}</b></p><p style="font-size:12px;color:#64748b">Redirection vers WhatsApp...</p>`;
-  submitBtn.innerText='⏳ Redirection...';
-  setTimeout(()=>{let lien=liens[niveauChoisi];box.innerHTML+=`<br><a href="${lien}" target="_blank" style="background:#059669;color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:800;display:inline-block;margin-top:10px">👉 Rejoindre Groupe ${niveauChoisi}</a>`;window.open(lien,'_blank');},1000);
-}
-document.getElementById('submitBtn').addEventListener('click',inscrire);
+  box.innerHTML=`<h3 style="color:#065f46">✅ Mabrouk ${nom}!</h3><p style="margin:8px 0">Inscription validée - Niveau <b>${niveauChoisi}</b></p><p style="font-size:12px;color:#64748b">Redirection vers WhatsApp sécurisée...</p>`;
+  let btn=document.getElementById('submitBtn');btn.disabled=true;btn.innerText='⏳ Redirection sécurisée...';
+  localStorage.setItem('makaranta_tries', tries+1);
+  localStorage.setItem('makaranta_last', Date.now());
+  
+  setTimeout(()=>{let lien=liens[niveauChoisi];box.innerHTML+=`<br><a href="${lien}" target="_blank" style="background:#059669;color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:800;display:inline-block;margin-top:10px">👉 Rejoindre Groupe ${niveauChoisi}</a><p style="margin-top:10px;font-size:11px;color:#64748b">Si ça ne s'ouvre pas, clique sur le bouton</p>`;window.open(lien,'_blank');btn.disabled=false;checkEng();},1200);
+});
+
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;document.getElementById('installBanner').style.display='flex'});
 function installerApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(()=>{deferredPrompt=null;document.getElementById('installBanner').style.display='none'})}}
-if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
+if('serviceWorker' in navigator){try{navigator.serviceWorker.register('sw.js')}catch(e){}}
 </script>
 </body>
-</html> 
+</html>
